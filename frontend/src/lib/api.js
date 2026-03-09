@@ -1,7 +1,8 @@
 import axios from 'axios';
+import { env } from 'process';
 
 const api = axios.create({
-  baseURL: 'https://taskflow-production-cede.up.railway.app/api',
+  baseURL: env.VITE_API_URL || 'https://taskflow-production-cede.up.railway.app/api', // Default base URL backend 
 });
 
 api.interceptors.request.use((config) => {
